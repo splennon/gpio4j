@@ -1,0 +1,85 @@
+syntax = "proto3";
+package serial;
+
+import "timestamp.proto";
+
+option java_multiple_files = true;
+option java_package = "org.overworld.gpio4j.serial";
+option java_outer_classname = "SerialProtos";
+
+option csharp_namespace = "Overworld.Gpio4j.Serial";
+
+option go_package = "overworld.org/gpio4j/serial";
+
+enum PinType {
+  DIGITAL_IN = 0;
+  DIGITAL_OUT = 1;
+  ANALOG_IN = 2;
+  ANALOG_OUT = 3;
+  COSINE = 4;
+  BUFFER = 5;
+  PWM = 6;
+}
+
+message IntArray {
+  repeated uint32 entry = 1;
+}
+
+message BoundData {
+  uint32 pin = 1;
+  google.protobuf.Timestamp time = 2;
+  
+  oneof data {
+  	uint32 number = 3;
+  	bool boolean = 4;
+  	IntArray buffer = 5;
+  }
+}
+
+message HostMessage {
+  oneof message {
+    Read read = 1;
+    Write write = 2;
+    Config config = 3;
+    Deconfig deconfig = 4;
+    Dump dump = 5;
+  }
+    oneof message2 {
+    Read read = 1;
+    Write write = 2;
+    Config config = 3;
+    Deconfig deconfig = 4;
+    Dump dump = 5;
+  }
+}
+
+message Read {
+  repeated uint32 pin = 1;
+}
+
+message Write {
+  repeated BoundData data = 1;
+}
+
+message Dump {}
+
+message Config {
+  uint32 pin = 1;
+  PinType type = 2;
+  bool interrupt = 3;
+}
+
+message Deconfig {
+  uint32 pin = 1;
+}
+
+message BoardMessage {
+  oneof message {
+    BoundDataArray data = 1;
+    BoundData interrupt = 2;
+  }
+}
+
+message BoundDataArray {
+  repeated BoundData entry = 1;
+}

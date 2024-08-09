@@ -1,0 +1,19 @@
+package org.overworld.gpio4j;
+
+import org.overworld.gpio4j.serial.HostMessage;
+
+public class Device {
+
+	public void play() {
+		
+		HostMessage.Builder mess = HostMessage.newBuilder();
+		mess.getDeconfigBuilder().setPin(23);
+		HostMessage m = mess.build();
+		
+		System.out.println(m.toString());
+	}
+	
+	public static void main(String[] args) {
+		play();
+	}
+}

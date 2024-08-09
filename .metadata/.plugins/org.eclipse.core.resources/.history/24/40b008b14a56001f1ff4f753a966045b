@@ -1,0 +1,20 @@
+package org.overworld.gpio4j;
+
+import org.overworld.gpio4j.serial.HostMessage;
+import org.overworld.gpio4j.serial.PinType;
+
+public class Device {
+
+	public void play() {
+		
+		HostMessage.Builder mess = HostMessage.newBuilder();
+		mess.getConfigBuilder().setPin(23).setType(PinType.ANALOG_OUT);
+		HostMessage m = mess.build();
+		
+		System.out.println(m.toByteString());
+	}
+	
+	public static void main(String[] args) {
+		(new Device()).play();
+	}
+}
