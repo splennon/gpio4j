@@ -1,3 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">&#x0A;<refactoring comment="Rename Java project &apos;GPIO4J&apos; to &apos;gpio4j&apos;&#x0A;- Original element: &apos;GPIO4J&apos;&#x0A;- Renamed element: &apos;GPIO4J&apos;&#x0A;- Update references to refactored element" description="Rename Java project &apos;GPIO4J&apos;" flags="7" id="org.eclipse.jdt.ui.rename.java.project" input="=GPIO4J" name="gpio4j" references="true" stamp="1723153570206" version="1.0"/>&#x0A;<refactoring comment="Delete resource &apos;client&apos;" deleteContents="false" description="Delete resource &apos;client&apos;" element1="/client" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1723316547049"/>
-</session>
