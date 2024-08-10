@@ -65,6 +65,7 @@
 	</section>
 	<section name="MavenProjectImportWizardPage">
 		<list key="rootDirectory">
+			<item value="/Users/stephen/workspaces/gpio/example-client"/>
 			<item value="/Users/stephen/workspaces/gpio4j/client"/>
 		</list>
 		<list key="projectNameTemplate">

@@ -89,26 +89,25 @@ public final class SerialProtos {
       "\022\013\n\003pin\030\001 \001(\r\022(\n\004time\030\002 \001(\0132\032.google.pro" +
       "tobuf.Timestamp\022\020\n\006number\030\003 \001(\rH\000\022\021\n\007boo" +
       "lean\030\004 \001(\010H\000\022\"\n\006buffer\030\005 \001(\0132\020.serial.In" +
-      "tArrayH\000B\006\n\004data\"\347\001\n\013HostMessage\022\034\n\004read" +
+      "tArrayH\000B\006\n\004data\"\274\001\n\013HostMessage\022\034\n\004read" +
       "\030\001 \001(\0132\014.serial.ReadH\000\022\036\n\005write\030\002 \001(\0132\r." +
       "serial.WriteH\000\022 \n\006config\030\003 \001(\0132\016.serial." +
       "ConfigH\000\022$\n\010deconfig\030\004 \001(\0132\020.serial.Deco" +
-      "nfigH\000\022\034\n\004dump\030\005 \001(\0132\014.serial.DumpH\000\022\035\n\005" +
-      "read2\030\006 \001(\0132\014.serial.ReadH\001B\t\n\007messageB\n" +
-      "\n\010message2\"\023\n\004Read\022\013\n\003pin\030\001 \003(\r\"(\n\005Write" +
-      "\022\037\n\004data\030\001 \003(\0132\021.serial.BoundData\"\006\n\004Dum" +
-      "p\"G\n\006Config\022\013\n\003pin\030\001 \001(\r\022\035\n\004type\030\002 \001(\0162\017" +
-      ".serial.PinType\022\021\n\tinterrupt\030\003 \001(\010\"\027\n\010De" +
-      "config\022\013\n\003pin\030\001 \001(\r\"i\n\014BoardMessage\022&\n\004d" +
-      "ata\030\001 \001(\0132\026.serial.BoundDataArrayH\000\022&\n\ti" +
-      "nterrupt\030\002 \001(\0132\021.serial.BoundDataH\000B\t\n\007m" +
-      "essage\"2\n\016BoundDataArray\022 \n\005entry\030\001 \003(\0132" +
-      "\021.serial.BoundData*j\n\007PinType\022\016\n\nDIGITAL" +
-      "_IN\020\000\022\017\n\013DIGITAL_OUT\020\001\022\r\n\tANALOG_IN\020\002\022\016\n" +
-      "\nANALOG_OUT\020\003\022\n\n\006COSINE\020\004\022\n\n\006BUFFER\020\005\022\007\n" +
-      "\003PWM\020\006Bd\n\033org.overworld.gpio4j.serialB\014S" +
-      "erialProtosP\001Z\033overworld.org/gpio4j/seri" +
-      "al\252\002\027Overworld.Gpio4j.Serialb\006proto3"
+      "nfigH\000\022\034\n\004dump\030\005 \001(\0132\014.serial.DumpH\000B\t\n\007" +
+      "message\"\023\n\004Read\022\013\n\003pin\030\001 \003(\r\"(\n\005Write\022\037\n" +
+      "\004data\030\001 \003(\0132\021.serial.BoundData\"\006\n\004Dump\"G" +
+      "\n\006Config\022\013\n\003pin\030\001 \001(\r\022\035\n\004type\030\002 \001(\0162\017.se" +
+      "rial.PinType\022\021\n\tinterrupt\030\003 \001(\010\"\027\n\010Decon" +
+      "fig\022\013\n\003pin\030\001 \001(\r\"i\n\014BoardMessage\022&\n\004data" +
+      "\030\001 \001(\0132\026.serial.BoundDataArrayH\000\022&\n\tinte" +
+      "rrupt\030\002 \001(\0132\021.serial.BoundDataH\000B\t\n\007mess" +
+      "age\"2\n\016BoundDataArray\022 \n\005entry\030\001 \003(\0132\021.s" +
+      "erial.BoundData*j\n\007PinType\022\016\n\nDIGITAL_IN" +
+      "\020\000\022\017\n\013DIGITAL_OUT\020\001\022\r\n\tANALOG_IN\020\002\022\016\n\nAN" +
+      "ALOG_OUT\020\003\022\n\n\006COSINE\020\004\022\n\n\006BUFFER\020\005\022\007\n\003PW" +
+      "M\020\006Bd\n\033org.overworld.gpio4j.serialB\014Seri" +
+      "alProtosP\001Z\033overworld.org/gpio4j/serial\252" +
+      "\002\027Overworld.Gpio4j.Serialb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -132,7 +131,7 @@ public final class SerialProtos {
     internal_static_serial_HostMessage_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_serial_HostMessage_descriptor,
-        new java.lang.String[] { "Read", "Write", "Config", "Deconfig", "Dump", "Read2", "Message", "Message2", });
+        new java.lang.String[] { "Read", "Write", "Config", "Deconfig", "Dump", "Message", });
     internal_static_serial_Read_descriptor =
       getDescriptor().getMessageTypes().get(3);
     internal_static_serial_Read_fieldAccessorTable = new

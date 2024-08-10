@@ -84,22 +84,5 @@ public interface HostMessageOrBuilder extends
    */
   org.overworld.gpio4j.serial.DumpOrBuilder getDumpOrBuilder();
 
-  /**
-   * <code>.serial.Read read2 = 6;</code>
-   * @return Whether the read2 field is set.
-   */
-  boolean hasRead2();
-  /**
-   * <code>.serial.Read read2 = 6;</code>
-   * @return The read2.
-   */
-  org.overworld.gpio4j.serial.Read getRead2();
-  /**
-   * <code>.serial.Read read2 = 6;</code>
-   */
-  org.overworld.gpio4j.serial.ReadOrBuilder getRead2OrBuilder();
-
   org.overworld.gpio4j.serial.HostMessage.MessageCase getMessageCase();
-
-  org.overworld.gpio4j.serial.HostMessage.Message2Case getMessage2Case();
 }

@@ -90,46 +90,6 @@ private static final long serialVersionUID = 0L;
         messageCase_);
   }
 
-  private int message2Case_ = 0;
-  @SuppressWarnings("serial")
-  private java.lang.Object message2_;
-  public enum Message2Case
-      implements com.google.protobuf.Internal.EnumLite,
-          com.google.protobuf.AbstractMessage.InternalOneOfEnum {
-    READ2(6),
-    MESSAGE2_NOT_SET(0);
-    private final int value;
-    private Message2Case(int value) {
-      this.value = value;
-    }
-    /**
-     * @param value The number of the enum to look for.
-     * @return The enum associated with the given number.
-     * @deprecated Use {@link #forNumber(int)} instead.
-     */
-    @java.lang.Deprecated
-    public static Message2Case valueOf(int value) {
-      return forNumber(value);
-    }
-
-    public static Message2Case forNumber(int value) {
-      switch (value) {
-        case 6: return READ2;
-        case 0: return MESSAGE2_NOT_SET;
-        default: return null;
-      }
-    }
-    public int getNumber() {
-      return this.value;
-    }
-  };
-
-  public Message2Case
-  getMessage2Case() {
-    return Message2Case.forNumber(
-        message2Case_);
-  }
-
   public static final int READ_FIELD_NUMBER = 1;
   /**
    * <code>.serial.Read read = 1;</code>
@@ -285,37 +245,6 @@ private static final long serialVersionUID = 0L;
     return org.overworld.gpio4j.serial.Dump.getDefaultInstance();
   }
 
-  public static final int READ2_FIELD_NUMBER = 6;
-  /**
-   * <code>.serial.Read read2 = 6;</code>
-   * @return Whether the read2 field is set.
-   */
-  @java.lang.Override
-  public boolean hasRead2() {
-    return message2Case_ == 6;
-  }
-  /**
-   * <code>.serial.Read read2 = 6;</code>
-   * @return The read2.
-   */
-  @java.lang.Override
-  public org.overworld.gpio4j.serial.Read getRead2() {
-    if (message2Case_ == 6) {
-       return (org.overworld.gpio4j.serial.Read) message2_;
-    }
-    return org.overworld.gpio4j.serial.Read.getDefaultInstance();
-  }
-  /**
-   * <code>.serial.Read read2 = 6;</code>
-   */
-  @java.lang.Override
-  public org.overworld.gpio4j.serial.ReadOrBuilder getRead2OrBuilder() {
-    if (message2Case_ == 6) {
-       return (org.overworld.gpio4j.serial.Read) message2_;
-    }
-    return org.overworld.gpio4j.serial.Read.getDefaultInstance();
-  }
-
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -345,9 +274,6 @@ private static final long serialVersionUID = 0L;
     if (messageCase_ == 5) {
       output.writeMessage(5, (org.overworld.gpio4j.serial.Dump) message_);
     }
-    if (message2Case_ == 6) {
-      output.writeMessage(6, (org.overworld.gpio4j.serial.Read) message2_);
-    }
     getUnknownFields().writeTo(output);
   }
 
@@ -376,10 +302,6 @@ private static final long serialVersionUID = 0L;
     if (messageCase_ == 5) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(5, (org.overworld.gpio4j.serial.Dump) message_);
-    }
-    if (message2Case_ == 6) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(6, (org.overworld.gpio4j.serial.Read) message2_);
     }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
@@ -421,15 +343,6 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!getMessage2Case().equals(other.getMessage2Case())) return false;
-    switch (message2Case_) {
-      case 6:
-        if (!getRead2()
-            .equals(other.getRead2())) return false;
-        break;
-      case 0:
-      default:
-    }
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
@@ -461,14 +374,6 @@ private static final long serialVersionUID = 0L;
       case 5:
         hash = (37 * hash) + DUMP_FIELD_NUMBER;
         hash = (53 * hash) + getDump().hashCode();
-        break;
-      case 0:
-      default:
-    }
-    switch (message2Case_) {
-      case 6:
-        hash = (37 * hash) + READ2_FIELD_NUMBER;
-        hash = (53 * hash) + getRead2().hashCode();
         break;
       case 0:
       default:
@@ -619,13 +524,8 @@ private static final long serialVersionUID = 0L;
       if (dumpBuilder_ != null) {
         dumpBuilder_.clear();
       }
-      if (read2Builder_ != null) {
-        read2Builder_.clear();
-      }
       messageCase_ = 0;
       message_ = null;
-      message2Case_ = 0;
-      message2_ = null;
       return this;
     }
 
@@ -685,12 +585,6 @@ private static final long serialVersionUID = 0L;
           dumpBuilder_ != null) {
         result.message_ = dumpBuilder_.build();
       }
-      result.message2Case_ = message2Case_;
-      result.message2_ = this.message2_;
-      if (message2Case_ == 6 &&
-          read2Builder_ != null) {
-        result.message2_ = read2Builder_.build();
-      }
     }
 
     @java.lang.Override
@@ -727,15 +621,6 @@ private static final long serialVersionUID = 0L;
           break;
         }
         case MESSAGE_NOT_SET: {
-          break;
-        }
-      }
-      switch (other.getMessage2Case()) {
-        case READ2: {
-          mergeRead2(other.getRead2());
-          break;
-        }
-        case MESSAGE2_NOT_SET: {
           break;
         }
       }
@@ -800,13 +685,6 @@ private static final long serialVersionUID = 0L;
               messageCase_ = 5;
               break;
             } // case 42
-            case 50: {
-              input.readMessage(
-                  getRead2FieldBuilder().getBuilder(),
-                  extensionRegistry);
-              message2Case_ = 6;
-              break;
-            } // case 50
             default: {
               if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                 done = true; // was an endgroup tag
@@ -833,21 +711,6 @@ private static final long serialVersionUID = 0L;
     public Builder clearMessage() {
       messageCase_ = 0;
       message_ = null;
-      onChanged();
-      return this;
-    }
-
-    private int message2Case_ = 0;
-    private java.lang.Object message2_;
-    public Message2Case
-        getMessage2Case() {
-      return Message2Case.forNumber(
-          message2Case_);
-    }
-
-    public Builder clearMessage2() {
-      message2Case_ = 0;
-      message2_ = null;
       onChanged();
       return this;
     }
@@ -1562,148 +1425,6 @@ private static final long serialVersionUID = 0L;
       messageCase_ = 5;
       onChanged();
       return dumpBuilder_;
-    }
-
-    private com.google.protobuf.SingleFieldBuilder<
-        org.overworld.gpio4j.serial.Read, org.overworld.gpio4j.serial.Read.Builder, org.overworld.gpio4j.serial.ReadOrBuilder> read2Builder_;
-    /**
-     * <code>.serial.Read read2 = 6;</code>
-     * @return Whether the read2 field is set.
-     */
-    @java.lang.Override
-    public boolean hasRead2() {
-      return message2Case_ == 6;
-    }
-    /**
-     * <code>.serial.Read read2 = 6;</code>
-     * @return The read2.
-     */
-    @java.lang.Override
-    public org.overworld.gpio4j.serial.Read getRead2() {
-      if (read2Builder_ == null) {
-        if (message2Case_ == 6) {
-          return (org.overworld.gpio4j.serial.Read) message2_;
-        }
-        return org.overworld.gpio4j.serial.Read.getDefaultInstance();
-      } else {
-        if (message2Case_ == 6) {
-          return read2Builder_.getMessage();
-        }
-        return org.overworld.gpio4j.serial.Read.getDefaultInstance();
-      }
-    }
-    /**
-     * <code>.serial.Read read2 = 6;</code>
-     */
-    public Builder setRead2(org.overworld.gpio4j.serial.Read value) {
-      if (read2Builder_ == null) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        message2_ = value;
-        onChanged();
-      } else {
-        read2Builder_.setMessage(value);
-      }
-      message2Case_ = 6;
-      return this;
-    }
-    /**
-     * <code>.serial.Read read2 = 6;</code>
-     */
-    public Builder setRead2(
-        org.overworld.gpio4j.serial.Read.Builder builderForValue) {
-      if (read2Builder_ == null) {
-        message2_ = builderForValue.build();
-        onChanged();
-      } else {
-        read2Builder_.setMessage(builderForValue.build());
-      }
-      message2Case_ = 6;
-      return this;
-    }
-    /**
-     * <code>.serial.Read read2 = 6;</code>
-     */
-    public Builder mergeRead2(org.overworld.gpio4j.serial.Read value) {
-      if (read2Builder_ == null) {
-        if (message2Case_ == 6 &&
-            message2_ != org.overworld.gpio4j.serial.Read.getDefaultInstance()) {
-          message2_ = org.overworld.gpio4j.serial.Read.newBuilder((org.overworld.gpio4j.serial.Read) message2_)
-              .mergeFrom(value).buildPartial();
-        } else {
-          message2_ = value;
-        }
-        onChanged();
-      } else {
-        if (message2Case_ == 6) {
-          read2Builder_.mergeFrom(value);
-        } else {
-          read2Builder_.setMessage(value);
-        }
-      }
-      message2Case_ = 6;
-      return this;
-    }
-    /**
-     * <code>.serial.Read read2 = 6;</code>
-     */
-    public Builder clearRead2() {
-      if (read2Builder_ == null) {
-        if (message2Case_ == 6) {
-          message2Case_ = 0;
-          message2_ = null;
-          onChanged();
-        }
-      } else {
-        if (message2Case_ == 6) {
-          message2Case_ = 0;
-          message2_ = null;
-        }
-        read2Builder_.clear();
-      }
-      return this;
-    }
-    /**
-     * <code>.serial.Read read2 = 6;</code>
-     */
-    public org.overworld.gpio4j.serial.Read.Builder getRead2Builder() {
-      return getRead2FieldBuilder().getBuilder();
-    }
-    /**
-     * <code>.serial.Read read2 = 6;</code>
-     */
-    @java.lang.Override
-    public org.overworld.gpio4j.serial.ReadOrBuilder getRead2OrBuilder() {
-      if ((message2Case_ == 6) && (read2Builder_ != null)) {
-        return read2Builder_.getMessageOrBuilder();
-      } else {
-        if (message2Case_ == 6) {
-          return (org.overworld.gpio4j.serial.Read) message2_;
-        }
-        return org.overworld.gpio4j.serial.Read.getDefaultInstance();
-      }
-    }
-    /**
-     * <code>.serial.Read read2 = 6;</code>
-     */
-    private com.google.protobuf.SingleFieldBuilder<
-        org.overworld.gpio4j.serial.Read, org.overworld.gpio4j.serial.Read.Builder, org.overworld.gpio4j.serial.ReadOrBuilder> 
-        getRead2FieldBuilder() {
-      if (read2Builder_ == null) {
-        if (!(message2Case_ == 6)) {
-          message2_ = org.overworld.gpio4j.serial.Read.getDefaultInstance();
-        }
-        read2Builder_ = new com.google.protobuf.SingleFieldBuilder<
-            org.overworld.gpio4j.serial.Read, org.overworld.gpio4j.serial.Read.Builder, org.overworld.gpio4j.serial.ReadOrBuilder>(
-                (org.overworld.gpio4j.serial.Read) message2_,
-                getParentForChildren(),
-                isClean());
-        message2_ = null;
-      }
-      message2Case_ = 6;
-      onChanged();
-      return read2Builder_;
     }
 
     // @@protoc_insertion_point(builder_scope:serial.HostMessage)
