@@ -1,35 +1,42 @@
 package org.overworld.gpio4j.serial.wire;
 
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+
 import org.overworld.gpio4j.serial.LineByte;
 import org.overworld.gpio4j.serial.MessageType;
 
 import lombok.AllArgsConstructor;
+import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.With;
 
 @AllArgsConstructor
 @NoArgsConstructor
 @With
+@Data
 public class Deconfig implements Message {
 	
 	private Integer pin;
 
 	@Override
-	public Message parse(byte[] wireData) {
+	public Deconfig parse(ByteArrayInputStream wireData) throws IOException {
 		
-		if (wireData.length != 2) throw new IllegalStateException("Incorrect number of bytes");
+		if (wireData.available() < 2) throw new IllegalStateException("Incorrect number of bytes");
 		
-		pin = new LineByte(wireData[0], wireData[1]).asInt();
+		pin = new LineByte(wireData.readNBytes(2)).asInt();
 		return this;
 	}
 
 	@Override
-	public byte[] wireData() {
+	public ByteArrayOutputStream wireData() {
 		
 		if (pin == null) throw new IllegalStateException("Pin is not set when generating wire data");
 		
-		LineByte lb = new LineByte(pin);
-		return new byte[] { lb.getHi(), lb.getLo() };
+		ByteArrayOutputStream result = new ByteArrayOutputStream();
+		result.writeBytes(new LineByte(pin).getHiLo());
+		return result;
 	}
 
 	@Override

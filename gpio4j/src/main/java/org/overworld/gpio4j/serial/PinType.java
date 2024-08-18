@@ -6,16 +6,16 @@ import java.util.stream.Stream;
 import lombok.Getter;
 
 public enum PinType {
-	DIGITAL_IN(1), DIGITAL_OUT(2), ANALOG_IN(3), ANALOG_OUT(4), COSINE(5), BUFFER(6), PWM(7);
+	DIGITAL_IN(1), DIGITAL_IN_PULLUP(2), DIGITAL_OUT(3), ANALOG_IN(4), ANALOG_OUT(5), COSINE(6), BUFFER(7), PWM(8);
 
 	@Getter
-	private int type;
+	private int id;
 
 	private PinType(int type) {
-		this.type = type;
+		this.id = type;
 	}
 	
 	public static Optional<PinType> forId(int id) {
-		return Stream.of(PinType.values()).filter(pt -> id == pt.getType()).findFirst();
+		return Stream.of(PinType.values()).filter(pt -> id == pt.getId()).findFirst();
 	}
 }

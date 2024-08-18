@@ -16,14 +16,14 @@ import lombok.With;
 @AllArgsConstructor
 @With
 @Data
-public class Interrupt implements Message {
+public class Notify implements Message {
 
 	private Integer pin;
 	private Message data;
 	private Long timestamp;
 
 	@Override
-	public Interrupt parse(ByteArrayInputStream wireData) throws IOException {
+	public Notify parse(ByteArrayInputStream wireData) throws IOException {
 		
 		// if (wireData.length != 2) throw new IllegalStateException("Incorrect number of bytes");
 		// TODO Don't know length, need better check
@@ -71,6 +71,6 @@ public class Interrupt implements Message {
 
 	@Override
 	public MessageType getType() {
-		return MessageType.INTERRUPT;
+		return MessageType.NOTIFY;
 	}
 }

@@ -1,5 +1,9 @@
 package org.overworld.gpio4j.serial.wire;
 
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+
 import org.overworld.gpio4j.serial.LineByte;
 import org.overworld.gpio4j.serial.MessageType;
 import org.overworld.gpio4j.serial.PinType;
@@ -16,28 +20,31 @@ import lombok.Data;
 public class Config implements Message {
 	
 	private Integer pin;
-	private PinType pt;
+	private PinType pinType;
 	private boolean interrupt = false;
 	
 	@Override
-	public Message parse(byte[] wireData) {
+	public Config parse(ByteArrayInputStream wireData) throws IOException {
 
-		if (wireData.length != 4) throw new IllegalStateException("Incorrect number of bytes");
+		if (wireData.available() < 4) throw new IllegalStateException("Incorrect number of bytes");
 		
-		pin = new LineByte(wireData[0], wireData[1]).asInt();
-		pt = PinType.forId(wireData[2]).get();
-		interrupt = wireData[2] == (byte) 0 ? false : true;
+		pin = new LineByte(wireData.readNBytes(2)).asInt();
+		pinType = PinType.forId(wireData.readNBytes(1)[0]).get();
+		interrupt = wireData.readNBytes(1)[0] == (byte) 0 ? false : true;
 		return this;
 	}
 
 	@Override
-	public byte[] wireData() {
+	public ByteArrayOutputStream wireData() {
 
 		if (pin == null) throw new IllegalStateException("Pin is not set when generating wire data");
-		if (pt == null) throw new IllegalStateException("Pin Type is not set when generating wire data");
+		if (pinType == null) throw new IllegalStateException("Pin Type is not set when generating wire data");
 
-		LineByte lb = new LineByte(pin);
-		return new byte[] { lb.getHi(), lb.getLo(), (byte) pt.getType(), interrupt ? (byte) 1 : (byte) 0 };
+		ByteArrayOutputStream result = new ByteArrayOutputStream();
+		result.writeBytes((new LineByte(pin)).getHiLo());
+		result.write((byte) pinType.getId());
+		result.write(interrupt ? (byte) 1 : (byte) 0);
+		return result;
 	}
 
 	@Override

@@ -1,7 +1,9 @@
 package org.overworld.gpio4j.serial.wire;
 
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+
 import org.overworld.gpio4j.serial.MessageType;
-import org.overworld.gpio4j.serial.PinType;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -13,16 +15,13 @@ import lombok.With;
 public class Dump implements Message {
 
 	@Override
-	public Message parse(byte[] wireData) {
-		
-		if (wireData.length != 0) throw new IllegalStateException("Incorrect number of bytes");
-		
+	public Dump parse(ByteArrayInputStream wireData) {
 		return this;
 	}
 
 	@Override
-	public byte[] wireData() {
-		return new byte[0];
+	public ByteArrayOutputStream wireData() {
+		return new ByteArrayOutputStream();
 	}
 
 	@Override

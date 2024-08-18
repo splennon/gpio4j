@@ -1,7 +1,5 @@
 package org.overworld.gpio4j.serial;
 
-import lombok.Getter;
-
 /**
  * Facilitates the handling of byte values as nibbles spread over two bytes
  */
@@ -34,7 +32,7 @@ public class LineByte {
 	}
 	
 	/**
-	 * Construct a byte from two bytes containing the low and high nibble respectively
+	 * Construct a byte from two bytes containing the hi and lo nibble respectively
 	 * 
 	 * @param hi the high nibble (four bits)
 	 * @param lo the low nibble (four bits)
@@ -53,6 +51,17 @@ public class LineByte {
 		data = hi & 0b00000000_00000000_00000000_00001111;
 		data = (data << 4) | (lo & 0b00000000_00000000_00000000_00001111);
 	}
+	
+	/**
+	 * Construct a byte from a byte array containing the hi and lo nibble respectively
+	 * 
+	 * @param hi the high nibble (four bits)
+	 * @param lo the low nibble (four bits)
+	 * @throws IllegalArgumentException either parameter is greater than a nibble (more than 4 bits are used)
+	 */
+	public LineByte(byte[] ba) {
+		this(ba[0], ba[1]);
+	}	
 	
 	/**
 	 * @return the value as a byte

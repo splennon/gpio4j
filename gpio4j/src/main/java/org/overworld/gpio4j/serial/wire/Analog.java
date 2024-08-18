@@ -6,6 +6,7 @@ import java.io.IOException;
 
 import org.overworld.gpio4j.serial.LineByte;
 import org.overworld.gpio4j.serial.MessageType;
+import org.overworld.gpio4j.serial.PinType;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -16,31 +17,32 @@ import lombok.With;
 @AllArgsConstructor
 @With
 @Data
-public class Read implements Message {
+public class Analog implements Message {
 	
-	private Integer pin;
-
+	private Integer value;
+	
 	@Override
-	public Read parse(ByteArrayInputStream wireData) throws IOException {
+	public Analog parse(ByteArrayInputStream wireData) throws IOException {
 		
 		if (wireData.available() < 2) throw new IllegalStateException("Incorrect number of bytes");
 		
-		pin = new LineByte(wireData.readNBytes(2)).asInt();
+		value = new LineByte(wireData.readNBytes(2)).asInt();
+		
 		return this;
 	}
 
 	@Override
 	public ByteArrayOutputStream wireData() {
-		
-		if (pin == null) throw new IllegalStateException("Pin is not set when generating wire data");
+
+		if (value == null) throw new IllegalStateException("Value is not set when generating wire data");
 		
 		ByteArrayOutputStream result = new ByteArrayOutputStream();
-		result.writeBytes(new LineByte(pin).getHiLo());
+		result.writeBytes(new LineByte(value).getHiLo());
 		return result;
 	}
 
 	@Override
 	public MessageType getType() {
-		return MessageType.READ;
+		return MessageType.ANALOG;
 	}
 }
