@@ -1,5 +1,4 @@
 #include <time.h>
-
 #include "settings.h"
 
 void setup() {
