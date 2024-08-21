@@ -1,8 +1,6 @@
 #ifndef EXECUTOR_H
 #define EXECUTOR_H
 
-#include "Arduino.h"
-
 class Executor {
 
 public:

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectDescription>
+	<name>Debug_zoom.us</name>
+	<comment></comment>
+	<projects>
+	</projects>
+	<buildSpec>
+	</buildSpec>
+	<natures>
+		<nature>org.eclipse.cdt.core.cnature</nature>
+	</natures>
+	<linkedResources>
+		<link>
+			<name>zoom.us</name>
+			<type>1</type>
+			<location>/Applications/zoom.us.app/Contents/MacOS/zoom.us</location>
+		</link>
+	</linkedResources>
+</projectDescription>

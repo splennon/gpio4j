@@ -1,7 +1,8 @@
 #include "Comms.h"
+#include "settings.h"
 
 Comms::Comms() {
-  Serial.setTimeout(SERIAL_TIMEOUT);
+  // Serial.setTimeout(SERIAL_TIMEOUT);
 }
 
 // void Comms::sendBoardMessage(::serial::BoardMessage message) {

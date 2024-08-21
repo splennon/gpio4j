@@ -1,11 +1,6 @@
 #ifndef PINTYPE_H
 #define PINTYPE_H
 
-#include <iostream>
-#include <vector>
-#include <optional>
-#include <algorithm>
-
 enum PinType {
   DIGITAL_IN = 1,
   DIGITAL_IN_PULLUP = 2,
@@ -15,13 +10,6 @@ enum PinType {
   COSINE = 6,
   BUFFER = 7,
   PWM = 8
-};
-
-class PinTypeHelper {
-public:
-  static uint8_t getId(PinType type);
-
-  static PinType forId(uint8_t id);
 };
 
 #endif

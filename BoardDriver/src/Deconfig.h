@@ -19,9 +19,9 @@ public:
 
   Deconfig(int pin) : pin(pin) {};
 
-  void parse(std::istream& wireData);
+  void parse(std::vector<uint8_t> wireData);
 
-  void wireData(std::ostream& wireData);
+  void wireData(std::vector<uint8_t> wireData);
 
   MessageType getType();
 };

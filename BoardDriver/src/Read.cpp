@@ -1,10 +1,10 @@
 #include "Read.h"
 
-void Read::parse(std::istream& wireData) {
+void Read::parse(std::vector<uint8_t> wireData) {
 	//TODO
 }
 
-void Read::wireData(std::ostream& wireData) {
+void Read::wireData(std::vector<uint8_t> wireData) {
   throw std::runtime_error("Write not implemented");
 }
 

@@ -24,11 +24,11 @@ public:
   Config(int pin, PinType pinType, bool interrupt)
     : pin(pin), pinType(pinType), interrupt(interrupt) {};
 
-  void parse(std::istream& wireData);
+  void parse(std::vector<uint8_t> wireData);
 
-  void wireData(std::ostream& wireData);
+  void wireData(std::vector<uint8_t> wireData);
 
-  PinType getType();
+  MessageType getType();
 };
 
 #endif

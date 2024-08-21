@@ -1,10 +1,10 @@
 #include "Interrupt.h"
 
-void Interrupt::parse(std::istream& wireData) {
+void Interrupt::parse(std::vector<uint8_t> wireData) {
 	//TODO
 }
 
-void Interrupt::wireData(std::ostream& wireData) {
+void Interrupt::wireData(std::vector<uint8_t> wireData) {
   throw std::runtime_error("Write not implemented");
 }
 

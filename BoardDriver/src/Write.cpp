@@ -1,18 +1,14 @@
 #include "Write.h"
 
-Write::Write(int pin, std::unique_ptr<Message> data, int64_t timestamp) :
-		pin(pin), data(std::move(data)), timestamp(timestamp) {
-}
-
 void Write::parse(std::istream &wireData) {
 //TODO
 }
 
-void Write::wireData(std::ostream &wireData) {
+void Write::wireData(std::vector<uint8_t> wireData) {
 	throw std::runtime_error("Write not implemented");
 }
 
-MessageType getType() {
+MessageType Write::getType() {
 	return MessageType::WRITE;
 }
 
@@ -27,7 +23,7 @@ void Write::setPin(int p) {
 const Message* Write::getData() {
 	return data.get();
 }
-void Write::setData(std::unique_ptr<Message> d) {
+void Write::setData(Message d) {
 	data = std::move(d);
 }
 

@@ -24,17 +24,17 @@ public:
   Notify(int pin, std::unique_ptr<Message> data, int64_t timestamp)
     : pin(pin), data(std::move(data)), timestamp(timestamp) {};
 
-  void parse(std::istream& wireData);
+  void parse(std::vector<uint8_t> wireData);
 
-  void wireData(std::ostream& wireData);
+  void wireData(std::vector<uint8_t> wireData);
 
   MessageType getType();
 
   int getPin();
-  void setPin(int p);
+  void setPin(uint8_t p);
 
-  Message* getData();
-  void setData(std::unique_ptr<Message> d);
+  Message getData();
+  void setData(Message d);
 
   int64_t getTimestamp();
   void setTimestamp(int64_t t);

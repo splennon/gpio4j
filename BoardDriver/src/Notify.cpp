@@ -1,10 +1,10 @@
 #include "Notify.h"
 
-void Notify::parse(std::istream &wireData) {
+void Notify::parse(std::vector<uint8_t> wireData) {
 	throw std::runtime_error("Read not implemented");
 }
 
-void Notify::wireData(std::ostream &wireData) {
+void Notify::wireData(std::vector<uint8_t> wireData) {
 
 	//TODO
 }
@@ -17,16 +17,16 @@ MessageType Notify::getType() {
 int Notify::getPin() {
 	return pin;
 }
-void setPin(uint8_t p) {
+void Notify::setPin(uint8_t p) {
 	pin = p;
 }
 
-Message* Notify::getData() {
+Message Notify::getData() {
 	return data.get();
 }
 
-void Notify::setData(std::unique_ptr<Message> d) {
-	data = std::move(d);
+void Notify::setData(Message d) {
+	data = d;
 }
 
 int64_t Notify::getTimestamp() {

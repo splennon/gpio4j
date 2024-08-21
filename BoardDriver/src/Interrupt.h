@@ -24,9 +24,9 @@ public:
   Interrupt(int pin, std::unique_ptr<Message> data, int64_t timestamp)
     : pin(pin), data(std::move(data)), timestamp(timestamp) {};
 
-  void parse(std::istream& wireData);
+  void parse(std::vector<uint8_t> wireData);
 
-  void wireData(std::ostream& wireData);
+  void wireData(std::vector<uint8_t> wireData);
 
   MessageType getType();
 

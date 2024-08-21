@@ -12,11 +12,13 @@
 class Message {
 public:
 
+	virtual ~Message() {};
+
 	virtual MessageType getType() = 0;
 
-	virtual void parse(std::istream &wireData) = 0;
+	virtual void parse(std::vector<uint8_t> wireData) = 0;
 
-	virtual void wireData(std::ostream &wireData) = 0;
+	virtual void wireData(std::vector<uint8_t> wireData) = 0;
 
 };
 

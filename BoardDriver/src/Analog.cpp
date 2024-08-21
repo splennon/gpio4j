@@ -1,14 +1,14 @@
 #include "Analog.h"
 
-void Analog::parse(std::istream &wireData) {
+void Analog::parse(std::vector<uint8_t> wireData) {
 	//TODO
 }
 
-void Analog::wireData(std::ostream &wireData) {
+void Analog::wireData(std::vector<uint8_t> wireData) {
 	throw std::runtime_error("Write not implemented");
 }
 
-MessageType getType() {
+MessageType Analog::getType() {
 	return MessageType::ANALOG;
 }
 
